@@ -1,0 +1,50 @@
+
+<label>Name</label>
+<input type="text" placeholder="name"/>
+<label>Color</label>
+<input type="text" placeholder="color" />
+
+<div class="row">
+  <div class="col-md-7">
+       <button class="btn btn-primary" (click)="addClickHandler()">Add</button>
+       <button class="btn btn-danger" (click)="resetClickHandler()">Clear Form</button>
+  </div>
+  <div class="col-md-5">
+    <label>Search:</label>
+    <input type="text" placeholder="search" />
+  </div>
+</div>
+
+<div class="row">
+    <table  class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cat of cats">
+              <td>{{cat.name}}</td>
+              <td>{{cat.color}}</td>
+              <td>
+                <button class="btn btn-primary" (click) = "editClickHandler(cat)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteClickHandler(cat)">Delete</button>
+              </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="selectedHero">
+ 
+  <h2>{{selectedCat.name | uppercase}} Details</h2>
+  <div><span>Name: </span>{{selectedCat.name}}</div>
+  <div>
+    <label>Color:
+      <input [(ngModel)]="selectedCat.color" placeholder="color">
+    </label>
+  </div>
+ 
+</div>
+</div>
